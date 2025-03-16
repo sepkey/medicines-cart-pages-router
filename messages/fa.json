@@ -17,6 +17,7 @@
   "medicine": {
     "add": "افزودن",
     "complete_shopping": "تکمیل خرید",
-    "toman": "تومان"
+    "toman": "تومان",
+    "item-added": "دارو به سبد خرید اضافه شد."
   }
 }

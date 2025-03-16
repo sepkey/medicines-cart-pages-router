@@ -1,3 +1,5 @@
+import { createCartItem } from "@/features/cart/queries/create-cart-item";
+import { updateCartItem } from "@/features/cart/queries/update-cart-item";
 import type { Item } from "@/features/cart/types";
 import { useCartStore } from "@/store/cart-store";
 import { Plus } from "lucide-react";
@@ -25,23 +27,14 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
       const existingItem = items.find((i) => i.medicineId === medicine.id);
 
       if (existingItem) {
-        await fetch(`http://localhost:3001/cart/${existingItem.id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ quantity: existingItem.quantity + 1 }),
-        });
+        await updateCartItem(existingItem);
       } else {
-        await fetch("http://localhost:3001/cart", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newItem),
-        });
+        await createCartItem(newItem);
       }
 
       toast("Item added", {
-        description: "An Item is added to the cart.",
+        description: t("item-added"),
       });
-
       addItem(newItem);
     } catch (error) {
       console.error("Error adding item to cart:", error);

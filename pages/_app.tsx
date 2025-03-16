@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </NextIntlClientProvider>
         </main>
       </div>
-      <Toaster />
+      <Toaster dir="rtl" />
     </div>
   );
 }
