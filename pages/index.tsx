@@ -3,7 +3,7 @@ import MedicineCta from "@/features/medicine/components/medicine-cta";
 import MedicineItem from "@/features/medicine/components/medicine-item";
 import MedicinePagination from "@/features/medicine/components/medicine-pagination";
 import { getMedicines } from "@/features/medicine/queries/get-medicines";
-import { Medicine } from "@/features/medicine/types";
+import type { Medicine } from "@/features/medicine/types";
 import { GetServerSideProps } from "next";
 import localFont from "next/font/local";
 import { Suspense } from "react";

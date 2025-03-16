@@ -1,5 +1,3 @@
-"use client";
-
 import { homePath } from "@/paths";
 import { useCartStore } from "@/store/cart-store";
 import { useRouter } from "next/router";

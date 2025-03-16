@@ -1,6 +1,6 @@
 import { createCartItem } from "@/features/cart/actions/create-cart-item";
-import { getCart } from "@/features/cart/queries/get-cart";
 import { updateCartItem } from "@/features/cart/actions/update-cart-item";
+import { getCart } from "@/features/cart/queries/get-cart";
 import type { Item } from "@/features/cart/types";
 import { useCartStore } from "@/store/cart-store";
 import { Plus } from "lucide-react";
@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { toast } from "sonner";
 import { Button } from "../../../components/ui/button";
-import { Medicine } from "../types";
+import type { Medicine } from "../types";
 
 type MedicineCardProps = {
   medicine: Medicine;
@@ -37,14 +37,12 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
       const newItems = await getCart();
       setItems(newItems);
 
-      toast(t("item_added_title"), {
+      toast.success(t("item_added_title"), {
         description: t("item_added_description"),
       });
     } catch (error) {
-      console.error("Error adding item to cart:", error);
+      toast.error("Error adding item to cart:" + error);
     }
-
-    // addItem(newItem);
   };
 
   return (

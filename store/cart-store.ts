@@ -1,11 +1,9 @@
-"use client";
-
-import { Item } from "@/features/cart/types";
+import type { Item } from "@/features/cart/types";
 import { create } from "zustand";
 
 type CartStore = {
   items: Item[];
-  addItem: (item: Item) => void;
+  // addItem: (item: Item) => void;
   clearCart: () => void;
   totalPrice: () => number;
   setItems: (items: Item[]) => void;
@@ -13,22 +11,22 @@ type CartStore = {
 
 export const useCartStore = create<CartStore>((set, get) => ({
   items: [],
-  addItem: (item) => {
-    set((state) => {
-      const existingItem = state.items.find((i) => i.id === item.id);
+  // addItem: (item) => {
+  //   set((state) => {
+  //     const existingItem = state.items.find((i) => i.id === item.id);
 
-      if (existingItem) {
-        return {
-          items: state.items.map((i) =>
-            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-          ),
-        };
-      } else {
-        const newItem = { ...item, quantity: item.quantity || 1 };
-        return { items: [...state.items, newItem] };
-      }
-    });
-  },
+  //     if (existingItem) {
+  //       return {
+  //         items: state.items.map((i) =>
+  //           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+  //         ),
+  //       };
+  //     } else {
+  //       const newItem = { ...item, quantity: item.quantity || 1 };
+  //       return { items: [...state.items, newItem] };
+  //     }
+  //   });
+  // },
   clearCart: () => set({ items: [] }),
   totalPrice: () => {
     return get().items.reduce(

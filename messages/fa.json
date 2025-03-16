@@ -12,13 +12,14 @@
     "toman": "تومان",
     "placeholder_message": "سبد خرید شما خالی است.",
     "back_to": "بازگشت به صفحه محصولات",
-    "total_prices": "جمع کل"
+    "total_prices": "جمع کل",
+    "cart_items_cleard": "سبد خرید خالی شد."
   },
   "medicine": {
     "add": "افزودن",
     "complete_shopping": "تکمیل خرید",
     "toman": "تومان",
     "item_added_description": "دارو به سبد خرید اضافه شد.",
-    "item_added_title": "افزودن"
+    "item_added_title": "اضافه به سبد"
   }
 }

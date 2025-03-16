@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useTransition } from "react";
 import { deleteCart } from "../actions/delete-cart";
+import { toast } from "sonner";
 
 export default function CartCta() {
   const { items, clearCart } = useCartStore();
@@ -14,7 +15,10 @@ export default function CartCta() {
   const handleDelete = () => {
     startTransition(async () => {
       const result = await deleteCart();
-      if (result.success) clearCart();
+      if (result.success) {
+        clearCart();
+        toast.success(t("cart_items_cleard"));
+      }
     });
   };
 
