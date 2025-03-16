@@ -1,0 +1,22 @@
+{
+  "not_found": {
+    "placeholder_message": "این صفحه وجود ندارد.",
+    "back_to": "بازگشت به صفحه محصولات"
+  },
+  "cart": {
+    "complete_shopping": "تکمیل خرید",
+    "delete_cart": "حذف سبد",
+    "item_quantity": "تعداد کالا",
+    "times": "عدد",
+    "price": "قیمت",
+    "toman": "تومان",
+    "placeholder_message": "سبد خرید شما خالی است.",
+    "back_to": "بازگشت به صفحه محصولات",
+    "total_prices": "جمع کل"
+  },
+  "medicine": {
+    "add": "افزودن",
+    "complete_shopping": "تکمیل خرید",
+    "toman": "تومان"
+  }
+}

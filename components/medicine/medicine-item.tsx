@@ -1,7 +1,7 @@
-import type { Item, Medicine } from "@/types";
-// import { useTranslations } from "next-intl";
 import { useCartStore } from "@/store/cart-store";
+import type { Item, Medicine } from "@/types";
 import { Plus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
@@ -12,6 +12,7 @@ type MedicineCardProps = {
 
 export default function MedicineItem({ medicine }: MedicineCardProps) {
   const addItem = useCartStore((state) => state.addItem);
+  const t = useTranslations("medicine");
   const handleAddToCart = async () => {
     const newItem: Item = {
       name: medicine.name,
@@ -63,7 +64,7 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
         <div className=" flex flex-col justify-between text-base">
           <h3 className="font-bold text">{medicine.name}</h3>
           <p className="text-sm text-muted-foreground/70">
-            {medicine.price.toLocaleString()} toman
+            {medicine.price.toLocaleString()} {t("toman")}
           </p>
         </div>
       </div>
@@ -74,7 +75,7 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
         className="text-primary font-semibold self-end cursor-pointer"
       >
         <Plus className="[&_svg]:size-6 " />
-        افزودن
+        {t("add")}
       </Button>
     </div>
   );

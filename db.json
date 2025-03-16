@@ -59,32 +59,11 @@
   ],
   "cart": [
     {
-      "id": "81ad",
+      "id": "40de",
       "name": "قرص مسکن",
       "price": 22000,
       "quantity": 1,
       "medicineId": "1"
-    },
-    {
-      "id": "6a9b",
-      "name": "کپسول آنتی بیوتیک",
-      "price": 22000,
-      "quantity": 3,
-      "medicineId": "2"
-    },
-    {
-      "id": "1333",
-      "name": "ویتامین",
-      "price": 22000,
-      "quantity": 3,
-      "medicineId": "3"
-    },
-    {
-      "id": "2c42",
-      "name": "سرماخوردگی",
-      "price": 22000,
-      "quantity": 2,
-      "medicineId": "4"
     }
   ]
 }
