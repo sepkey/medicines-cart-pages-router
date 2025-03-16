@@ -41,19 +41,18 @@ export default function Home({ medicines, paginationMetadata }: HomeProps) {
   );
 }
 
-// ✅ Pre-generate the first few pages
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: Medicine[] = await getMedicines();
   const perPage = 4;
   const totalPages = Math.ceil(data.length / perPage);
 
   const paths = Array.from({ length: totalPages }).map((_, index) => ({
-    params: { page: (index + 1).toString() }, // /1, /2, etc.
+    params: { page: (index + 1).toString() },
   }));
 
   return {
-    paths, // Pre-build some pages
-    fallback: "blocking", // Ensures ISR for additional pages
+    paths,
+    fallback: "blocking",
   };
 };
 
@@ -76,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         paginationMetadata: { currentPage: page, perPage, totalCount },
         messages: (await import(`../messages/${locale}.json`)).default,
       },
-      revalidate: 60, // ISR every 60 seconds
+      revalidate: 60,
     };
   } catch (error) {
     console.error("Error fetching data:", error);

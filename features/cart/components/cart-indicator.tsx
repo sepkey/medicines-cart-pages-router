@@ -1,4 +1,4 @@
-import { cartPath } from "@/paths";
+import { cartPath, purchasePath } from "@/paths";
 import { useCartStore } from "@/store/cart-store";
 import { useRouter } from "next/router";
 
@@ -7,7 +7,7 @@ export default function CartIndicator() {
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
   const { pathname } = useRouter();
 
-  if (totalItems === 0 || pathname === cartPath()) {
+  if (totalItems === 0 || pathname === cartPath() || purchasePath()) {
     return null;
   }
 
