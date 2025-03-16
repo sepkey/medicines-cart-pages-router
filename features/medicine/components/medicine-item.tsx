@@ -1,4 +1,5 @@
 import { createCartItem } from "@/features/cart/queries/create-cart-item";
+import { getCart } from "@/features/cart/queries/get-cart";
 import { updateCartItem } from "@/features/cart/queries/update-cart-item";
 import type { Item } from "@/features/cart/types";
 import { useCartStore } from "@/store/cart-store";
@@ -14,8 +15,9 @@ type MedicineCardProps = {
 };
 
 export default function MedicineItem({ medicine }: MedicineCardProps) {
-  const { addItem, items } = useCartStore();
+  const { addItem, items, setItems } = useCartStore();
   const t = useTranslations("medicine");
+
   const handleAddToCart = async () => {
     const newItem: Item = {
       name: medicine.name,
@@ -25,20 +27,26 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
     };
     try {
       const existingItem = items.find((i) => i.medicineId === medicine.id);
+      console.log(existingItem, "o");
 
       if (existingItem) {
         await updateCartItem(existingItem);
       } else {
+        console.log(newItem, "1");
         await createCartItem(newItem);
       }
+
+      const newItems = await getCart();
+      setItems(newItems);
 
       toast("Item added", {
         description: t("item-added"),
       });
-      addItem(newItem);
     } catch (error) {
       console.error("Error adding item to cart:", error);
     }
+
+    // addItem(newItem);
   };
 
   return (

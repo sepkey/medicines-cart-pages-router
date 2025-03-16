@@ -1,3 +1,4 @@
+import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import MedicineCta from "@/features/medicine/components/medicine-cta";
 import MedicineItem from "@/features/medicine/components/medicine-item";
@@ -8,6 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GetServerSideProps } from "next";
 import localFont from "next/font/local";
 import { useRouter } from "next/router";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/Samim.woff2",
@@ -52,9 +54,11 @@ export default function Home({
       className={`${geistSans.variable} font-[family-name:var(--font-geist-sans)] flex-1 flex flex-col gap-8`}
     >
       <div className="w-full max-w-[600px] flex flex-col gap-4 mx-auto ">
-        {medicines.map((medicine) => (
-          <MedicineItem key={medicine.id} medicine={medicine} />
-        ))}
+        <Suspense fallback={<Spinner />}>
+          {medicines.map((medicine) => (
+            <MedicineItem key={medicine.id} medicine={medicine} />
+          ))}
+        </Suspense>
 
         <div className="flex items-center justify-center gap-2">
           <Button

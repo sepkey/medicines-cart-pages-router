@@ -24,7 +24,8 @@ export const useCartStore = create<CartStore>((set, get) => ({
           ),
         };
       } else {
-        return { items: [...state.items, item] };
+        const newItem = { ...item, quantity: item.quantity || 1 };
+        return { items: [...state.items, newItem] };
       }
     });
   },

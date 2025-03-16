@@ -57,13 +57,5 @@
       "description": "قرص معده"
     }
   ],
-  "cart": [
-    {
-      "id": "69bc",
-      "name": "قرص مسکن",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "1"
-    }
-  ]
+  "cart": []
 }
