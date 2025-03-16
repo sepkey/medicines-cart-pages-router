@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Item } from "@/types";
+import { Item } from "@/features/cart/types";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 

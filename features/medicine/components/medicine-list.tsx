@@ -1,5 +1,5 @@
-import type { Medicine } from "@/types";
 import MedicineItem from "./medicine-item";
+import type { Medicine } from "../types";
 
 type MedicineListProps = {
   medicines: Medicine[];

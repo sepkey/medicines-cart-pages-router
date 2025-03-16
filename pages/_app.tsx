@@ -1,10 +1,24 @@
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
+import { getCart } from "@/features/cart/queries/get-cart";
+import { useCartStore } from "@/store/cart-store";
 import "@/styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import type { AppProps } from "next/app";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const setItems = useCartStore((state) => state.setItems);
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      const items = await getCart();
+      setItems(items);
+    };
+
+    fetchCart();
+  }, [setItems]);
+
   return (
     <div dir="rtl">
       <Header />

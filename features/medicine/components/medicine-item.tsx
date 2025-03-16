@@ -1,10 +1,11 @@
+import type { Item } from "@/features/cart/types";
 import { useCartStore } from "@/store/cart-store";
-import type { Item, Medicine } from "@/types";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { toast } from "sonner";
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
+import { Medicine } from "../types";
 
 type MedicineCardProps = {
   medicine: Medicine;

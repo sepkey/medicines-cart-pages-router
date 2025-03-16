@@ -1,7 +1,7 @@
 import { cartPath, homePath } from "@/paths";
 import { ChevronRight, Menu, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import CartIndicator from "./cart/cart-indicator";
+import CartIndicator from "../features/cart/components/cart-indicator";
 import ToggleHeaderIcon from "./toggle-header-icon";
 
 export default function Header() {

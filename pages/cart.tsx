@@ -1,5 +1,5 @@
-import CartCta from "@/components/cart/cart-cta";
-import CartList from "@/components/cart/cart-list";
+import CartCta from "@/features/cart/components/cart-cta";
+import CartList from "@/features/cart/components/cart-list";
 import { GetServerSideProps } from "next";
 
 export default function CartPage() {

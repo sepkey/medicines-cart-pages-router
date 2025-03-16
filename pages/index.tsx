@@ -1,14 +1,13 @@
-import MedicineCta from "@/components/medicine/medicine-cta";
-import MedicineItem from "@/components/medicine/medicine-item";
 import { Button } from "@/components/ui/button";
+import MedicineCta from "@/features/medicine/components/medicine-cta";
+import MedicineItem from "@/features/medicine/components/medicine-item";
+import { getMedicines } from "@/features/medicine/queries/get-medicines";
+import { Medicine } from "@/features/medicine/types";
 import { cn } from "@/lib/utils";
-import { useCartStore } from "@/store/cart-store";
-import { Medicine } from "@/types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GetServerSideProps } from "next";
 import localFont from "next/font/local";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const geistSans = localFont({
   src: "./fonts/Samim.woff2",
@@ -18,24 +17,15 @@ const geistSans = localFont({
 
 interface HomeProps {
   medicines: Medicine[];
-  totalCount: number;
-  currentPage: number;
-  perPage: number;
+  metadata: { totalCount: number; currentPage: number; perPage: number };
 }
 
 export default function Home({
   medicines,
-  totalCount,
-  currentPage,
-  perPage,
+  metadata: { totalCount, currentPage, perPage },
 }: HomeProps) {
   const totalPages = Math.ceil(totalCount / perPage);
   const router = useRouter();
-  const fetchCart = useCartStore((state) => state.fetchCart);
-
-  useEffect(() => {
-    fetchCart();
-  }, [fetchCart]);
 
   const handlePageChange = (page: number) => {
     const queryParams = new URLSearchParams(
@@ -117,19 +107,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const perPage = 4;
     const locale = "fa";
 
-    const res = await fetch(
-      `http://localhost:3001/medicines?_page=${page}&_per_page=${perPage}`
-    );
-    const paginatedData = await res.json();
-    const totalCount = paginatedData.items;
-    const medicines = paginatedData.data as Medicine[];
+    const data = await getMedicines(page, perPage);
+    const totalCount = data.items;
+    const medicines = data.data as Medicine[];
 
     return {
       props: {
         medicines,
-        currentPage: page,
-        perPage,
-        totalCount,
+        metadata: { currentPage: page, perPage, totalCount },
         messages: (await import(`../messages/${locale}.json`)).default,
       },
     };
@@ -138,9 +123,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     return {
       props: {
         medicines: [],
-        totalCount: 0,
-        currentPage: 1,
-        perPage: 4,
+        metadata: { currentPage: 1, perPage: 4, totalCount: 0 },
       },
     };
   }

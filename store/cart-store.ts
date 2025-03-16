@@ -1,6 +1,6 @@
 "use client";
 
-import { Item } from "@/types";
+import { Item } from "@/features/cart/types";
 import { create } from "zustand";
 
 type CartStore = {
@@ -8,7 +8,7 @@ type CartStore = {
   addItem: (item: Item) => void;
   clearCart: () => void;
   totalPrice: () => number;
-  fetchCart: () => Promise<void>;
+  setItems: (items: Item[]) => void;
 };
 
 export const useCartStore = create<CartStore>((set, get) => ({
@@ -33,17 +33,5 @@ export const useCartStore = create<CartStore>((set, get) => ({
       0
     );
   },
-  fetchCart: async () => {
-    try {
-      const response = await fetch("http://localhost:3001/cart");
-      if (!response.ok) {
-        throw new Error("Failed to fetch cart data");
-      }
-
-      const cartData = await response.json();
-      set({ items: cartData });
-    } catch (error) {
-      console.error("Error fetching cart data:", error);
-    }
-  },
+  setItems: (items) => set({ items }),
 }));
