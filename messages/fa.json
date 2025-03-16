@@ -18,6 +18,7 @@
     "add": "افزودن",
     "complete_shopping": "تکمیل خرید",
     "toman": "تومان",
-    "item-added": "دارو به سبد خرید اضافه شد."
+    "item_added_description": "دارو به سبد خرید اضافه شد.",
+    "item_added_title": "افزودن"
   }
 }

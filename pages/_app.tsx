@@ -34,7 +34,12 @@ export default function App({ Component, pageProps }: AppProps) {
           </NextIntlClientProvider>
         </main>
       </div>
-      <Toaster dir="rtl" />
+      <Toaster
+        expand
+        dir="rtl"
+        position="bottom-left"
+        className="bg-secondary font-[family-name:var(--font-geist-sans)]"
+      />
     </div>
   );
 }
