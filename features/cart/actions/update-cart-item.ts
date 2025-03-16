@@ -1,11 +1,10 @@
 import { Item } from "../types";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const updateCartItem = async (item: Item) => {
-  const response = await fetch(`http://localhost:3001/cart/${item.id}`, {
+  await fetch(`${BASE_URL}/cart/${item.id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ quantity: item.quantity + 1 }),
   });
-
-  console.log(response, "bingo");
 };

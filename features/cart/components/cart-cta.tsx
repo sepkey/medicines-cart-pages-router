@@ -4,7 +4,7 @@ import { useCartStore } from "@/store/cart-store";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useTransition } from "react";
-import { deleteCart } from "../queries/delete-cart";
+import { deleteCart } from "../actions/delete-cart";
 
 export default function CartCta() {
   const { items, clearCart } = useCartStore();

@@ -59,32 +59,18 @@
   ],
   "cart": [
     {
-      "id": "05d0",
-      "name": "کپسول آنتی بیوتیک",
-      "price": 22000,
-      "quantity": 5,
-      "medicineId": "2"
-    },
-    {
-      "id": "651f",
-      "name": "سرماخوردگی",
-      "price": 22000,
-      "quantity": 2,
-      "medicineId": "4"
-    },
-    {
-      "id": "afac",
+      "id": "eadb",
       "name": "قرص مسکن",
       "price": 22000,
-      "quantity": 2,
+      "quantity": 1,
       "medicineId": "1"
     },
     {
-      "id": "a4c4",
-      "name": "ویتامین",
+      "id": "dc48",
+      "name": "کپسول آنتی بیوتیک",
       "price": 22000,
       "quantity": 1,
-      "medicineId": "3"
+      "medicineId": "2"
     }
   ]
 }

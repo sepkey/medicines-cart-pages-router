@@ -1,6 +1,8 @@
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const getMedicines = async (page: number, perPage: number) => {
   const response = await fetch(
-    `http://localhost:3001/medicines?_page=${page}&_per_page=${perPage}`
+    `${BASE_URL}/medicines?_page=${page}&_per_page=${perPage}`
   );
   if (!response.ok) {
     throw new Error("Failed to fetch cart data");

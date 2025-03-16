@@ -1,6 +1,6 @@
-import { createCartItem } from "@/features/cart/queries/create-cart-item";
+import { createCartItem } from "@/features/cart/actions/create-cart-item";
 import { getCart } from "@/features/cart/queries/get-cart";
-import { updateCartItem } from "@/features/cart/queries/update-cart-item";
+import { updateCartItem } from "@/features/cart/actions/update-cart-item";
 import type { Item } from "@/features/cart/types";
 import { useCartStore } from "@/store/cart-store";
 import { Plus } from "lucide-react";
