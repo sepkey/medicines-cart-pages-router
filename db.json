@@ -1,0 +1,90 @@
+{
+  "medicines": [
+    {
+      "id": "1",
+      "name": "قرص مسکن",
+      "price": 22000,
+      "image": "./public/medicine.jpg",
+      "description": "قرص مسکن تسکین دهنده است."
+    },
+    {
+      "id": "2",
+      "name": "کپسول آنتی بیوتیک",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "کپسور آنتی بیوتیک برای از بین بردن عفونت است."
+    },
+    {
+      "id": "3",
+      "name": "ویتامین",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص ویتامین"
+    },
+    {
+      "id": "4",
+      "name": "سرماخوردگی",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص سرماخوردگی"
+    },
+    {
+      "id": "5",
+      "name": "آلرژی",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص آلرژی"
+    },
+    {
+      "id": "6",
+      "name": "فشارخون",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص فشار خون"
+    },
+    {
+      "id": "7",
+      "name": "دیابت",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص دیابت"
+    },
+    {
+      "id": "8",
+      "name": "معده",
+      "price": 22000,
+      "image": "/placeholder.svg?height=80&width=80",
+      "description": "قرص معده"
+    }
+  ],
+  "cart": [
+    {
+      "id": "81ad",
+      "name": "قرص مسکن",
+      "price": 22000,
+      "quantity": 1,
+      "medicineId": "1"
+    },
+    {
+      "id": "6a9b",
+      "name": "کپسول آنتی بیوتیک",
+      "price": 22000,
+      "quantity": 3,
+      "medicineId": "2"
+    },
+    {
+      "id": "1333",
+      "name": "ویتامین",
+      "price": 22000,
+      "quantity": 3,
+      "medicineId": "3"
+    },
+    {
+      "id": "2c42",
+      "name": "سرماخوردگی",
+      "price": 22000,
+      "quantity": 2,
+      "medicineId": "4"
+    }
+  ]
+}
