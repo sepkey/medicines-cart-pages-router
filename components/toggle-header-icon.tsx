@@ -11,5 +11,7 @@ export default function ToggleHeaderIcon({
   main,
 }: ToggleHeaderIcon) {
   const pathname = usePathname();
-  return <div>{pathname === homePath() ? main : alternative}</div>;
+  const isHomePage = pathname === homePath() || /^\/\d+$/.test(pathname);
+
+  return <div>{isHomePage ? main : alternative}</div>;
 }
