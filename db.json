@@ -59,32 +59,11 @@
   ],
   "cart": [
     {
-      "id": "40de",
+      "id": "69bc",
       "name": "قرص مسکن",
       "price": 22000,
-      "quantity": 2,
+      "quantity": 1,
       "medicineId": "1"
-    },
-    {
-      "id": "a5c3",
-      "name": "سرماخوردگی",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "4"
-    },
-    {
-      "id": "dc5c",
-      "name": "دیابت",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "7"
-    },
-    {
-      "id": "5cc1",
-      "name": "ویتامین",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "3"
     }
   ]
 }

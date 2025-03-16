@@ -14,17 +14,19 @@ type CartStore = {
 export const useCartStore = create<CartStore>((set, get) => ({
   items: [],
   addItem: (item) => {
-    const existingItem = get().items.find((i) => i.id === item.id);
+    set((state) => {
+      const existingItem = state.items.find((i) => i.id === item.id);
 
-    if (existingItem) {
-      set((state) => ({
-        items: state.items.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        ),
-      }));
-    } else {
-      set((state) => ({ items: [...state.items, item] }));
-    }
+      if (existingItem) {
+        return {
+          items: state.items.map((i) =>
+            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          ),
+        };
+      } else {
+        return { items: [...state.items, item] };
+      }
+    });
   },
   clearCart: () => set({ items: [] }),
   totalPrice: () => {

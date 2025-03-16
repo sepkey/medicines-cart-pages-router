@@ -12,7 +12,7 @@ type MedicineCardProps = {
 };
 
 export default function MedicineItem({ medicine }: MedicineCardProps) {
-  const addItem = useCartStore((state) => state.addItem);
+  const { addItem, items } = useCartStore();
   const t = useTranslations("medicine");
   const handleAddToCart = async () => {
     const newItem: Item = {
@@ -22,17 +22,13 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
       medicineId: medicine.id,
     };
     try {
-      const res = await fetch(
-        `http://localhost:3001/cart?medicineId=${medicine.id}`
-      );
-      const existingItems = await res.json();
+      const existingItem = items.find((i) => i.medicineId === medicine.id);
 
-      if (existingItems.length > 0) {
-        const itemToUpdate = existingItems[0];
-        await fetch(`http://localhost:3001/cart/${itemToUpdate.id}`, {
+      if (existingItem) {
+        await fetch(`http://localhost:3001/cart/${existingItem.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ quantity: itemToUpdate.quantity + 1 }),
+          body: JSON.stringify({ quantity: existingItem.quantity + 1 }),
         });
       } else {
         await fetch("http://localhost:3001/cart", {
@@ -41,6 +37,7 @@ export default function MedicineItem({ medicine }: MedicineCardProps) {
           body: JSON.stringify(newItem),
         });
       }
+
       toast("Item added", {
         description: "An Item is added to the cart.",
       });

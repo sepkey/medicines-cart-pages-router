@@ -12,6 +12,8 @@ export default function CartList() {
   const { items, totalPrice } = useCartStore();
   const t = useTranslations("cart");
 
+  console.log(items, "in cart-list");
+
   if (items.length === 0) {
     return (
       <Placeholder
@@ -27,9 +29,10 @@ export default function CartList() {
   }
   return (
     <div className="w-full max-w-[600px] flex flex-col gap-4 mx-auto ">
-      {items.map((item) => (
-        <CartItem key={item.id} item={item} />
-      ))}
+      {items.map((item) => {
+        console.log(item.id, "kir");
+        return <CartItem key={item.id} item={item} />;
+      })}
 
       <Separator className="mt-8" />
 
