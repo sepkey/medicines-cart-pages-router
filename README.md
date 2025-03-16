@@ -1,4 +1,4 @@
-# Reactjs News Aggregator
+# Medicines Store
 
 This is a React TypeScript app for a medication shopping pages. It utilizes modern React technologies, follows best practices for modularity and maintainability.
 
