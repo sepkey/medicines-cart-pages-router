@@ -8,6 +8,7 @@ type CartStore = {
   addItem: (item: Item) => void;
   clearCart: () => void;
   totalPrice: () => number;
+  fetchCart: () => Promise<void>;
 };
 
 export const useCartStore = create<CartStore>((set, get) => ({
@@ -31,5 +32,18 @@ export const useCartStore = create<CartStore>((set, get) => ({
       (total, item) => total + item.price * item.quantity,
       0
     );
+  },
+  fetchCart: async () => {
+    try {
+      const response = await fetch("http://localhost:3001/cart");
+      if (!response.ok) {
+        throw new Error("Failed to fetch cart data");
+      }
+
+      const cartData = await response.json();
+      set({ items: cartData });
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
   },
 }));
