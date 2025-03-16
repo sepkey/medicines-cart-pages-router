@@ -57,20 +57,5 @@
       "description": "قرص معده"
     }
   ],
-  "cart": [
-    {
-      "id": "eadb",
-      "name": "قرص مسکن",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "1"
-    },
-    {
-      "id": "dc48",
-      "name": "کپسول آنتی بیوتیک",
-      "price": 22000,
-      "quantity": 1,
-      "medicineId": "2"
-    }
-  ]
+  "cart": []
 }

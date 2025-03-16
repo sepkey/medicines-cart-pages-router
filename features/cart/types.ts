@@ -1,7 +1,7 @@
 export type Item = {
   quantity: number;
-  id?: string;
-  medicineId: number | string;
+  id?: string; //provided by json server
+  medicineId: string;
   price: number;
   name: string;
 };
