@@ -32,15 +32,14 @@ Follow the instructions:
    ```
 
 4. Run the json server for data fetching:
-
-  
-
    ```bash
    npm install -g json-server
    ```
 
-json-server --watch db.json --port 3001
+    ```bash
+   json-server --watch db.json --port 3001
    ```
+
 
 ## Features
 
