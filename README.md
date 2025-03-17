@@ -45,7 +45,7 @@ Follow the instructions:
 
 - **Medicines List**: Fetch and display medicines list from a json-server
 - **Add and remove Items**: Add the items to the cart and delete it from the server.
-- **Pagination**: Smooth navigation through articles with  server-side pagination using search queries.
+- **Pagination**: Smooth navigation through medicines list with  server-side pagination using search params.
 - **Responsive Design**: Fully optimized for desktop and mobile devices.
 - **Feature-based Structure**: Organize the codebase into a feature-based folder structure, making it easier to scale.
 
