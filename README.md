@@ -33,12 +33,16 @@ Follow the instructions:
 
 4. Run the json server for data fetching:
    ```bash
-   npm run dev
+  
+npm install -g json-server
+```
+
+json-server --watch db.json --port 3001
    ```
 
 ## Features
 
-- **News List**: Fetch and display medicines list from a json-server
+- **Medicines List**: Fetch and display medicines list from a json-server
 - **Add and remove Items**: Add the items to the cart and delete it from the server.
 - **Pagination**: Smooth navigation through articles with  server-side pagination using search queries.
 - **Responsive Design**: Fully optimized for desktop and mobile devices.
